@@ -1,0 +1,191 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: #e9e8ec;
+}
+
+/*  Start Search Box Styling */
+
+.search {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.search svg {
+  height: 6rem;
+  padding: 1.5rem;
+  position: absolute;
+  cursor: pointer;
+}
+.search__icon {
+  fill: #767b91;
+  z-index: 99;
+}
+.search__close {
+  right: 0;
+  fill: white;
+  transition: 500ms fill ease-in;
+}
+.search__delete {
+  fill: #c7ccdb;
+  right: 5rem;
+  display: none;
+}
+.search input {
+  box-shadow: 0 0 10px 5px #e1e5ee;
+  border: none;
+  border-radius: 50%;
+  padding: 1.75rem 3rem;
+  font-family: inherit;
+  font-size: 2rem;
+  color: #767b91;
+  outline: none;
+  width: 2rem;
+  transition: 500ms width ease-in-out, 500ms padding ease-in-out,
+    500ms border-radius ease-in-out;
+}
+.search input:not(:placeholder-shown) ~ .search__delete {
+  display: block;
+}
+.search-open input {
+  width: 34rem;
+  padding: 1.5rem 11rem 1.5rem 6rem;
+  border-radius: 0.2rem;
+}
+.search-open svg.search__close {
+  fill: #767b91;
+}
+
+/* End of Search box */
+
+/* Start of Waterfall container */
+
+.waterfall-container {
+  width: 700px;
+  height: 500px;
+  background-color: #f8f8f8;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* to margin na to vgalo */
+  margin: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+}
+
+/* End waterfall container */
+
+/* Start  score container*/
+
+.score-container {
+  width: 700px;
+  height: 500px;
+  /* background-color: #f8f8f8; */
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* to margin na to vgalo */
+  margin: 50px;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 10px; */
+}
+
+.circular {
+  height: 200px;
+  /* need to change */
+  width: 200px;
+  /* need to change */
+  position: relative;
+  transform: scale(2);
+}
+.circular .inner {
+  position: absolute;
+  z-index: 6;
+  top: 50%;
+  left: 50%;
+  height: 160px;
+  /* need to change */
+  width: 160px;
+  /* need to change */
+  margin: -80px 0 0 -80px;
+  /* need to change */
+  background: #e9e8ec;
+  border-radius: 100%;
+}
+.circular .number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-size: 18px;
+  font-weight: 500;
+  color: #4158d0;
+}
+.circular .bar {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #aae5e5;
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 200px, 200px, 100px);
+  /* need to change */
+}
+.circle .bar .progress {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 100px, 200px, 0px);
+  /* need to change */
+  background: #fdd3d6;
+}
+/* .circle .left .progress {
+  z-index: 1;
+  animation: left 4s linear both;
+} */
+
+.left_progress {
+  z-index: 1;
+  animation: left 4s linear both;
+}
+
+/* @keyframes left {
+  100% {
+    transform: rotate(180deg);
+  }
+} */
+.circle .right {
+  transform: rotate(180deg);
+  z-index: 3;
+}
+/* .circle .right .progress {
+  animation: right 4s linear both;
+  animation-delay: 4s;
+} */
+
+.right_progress {
+  animation: right 4s linear both;
+  animation-delay: 4s;
+}
+
+/* @keyframes right {
+  100% {
+    transform: rotate(50deg);
+  }
+} */
+
+/* End Score Container  */
