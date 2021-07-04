@@ -17,6 +17,7 @@ let dummy_data = {
       image:
         "https://images.pexels.com/photos/1117210/pexels-photo-1117210.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     },
+    competitors: [2, 5, 0, 0, 4, 10, 5, 6, 10, 1],
   },
   Ship_2: {
     data: [
@@ -36,6 +37,7 @@ let dummy_data = {
       image:
         "https://images.pexels.com/photos/68737/cruise-ship-holidays-cruise-vacation-68737.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     },
+    competitors: [3, 15, 1, 1, 2, 4, 7, 7, 2, 1],
   },
   Ship_3: {
     data: [
@@ -55,14 +57,18 @@ let dummy_data = {
       image:
         "https://images.pexels.com/photos/2051027/pexels-photo-2051027.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     },
+    competitors: [0, 11, 2, 4, 6, 10, 7, 8, 0, 3],
   },
 };
 
 let baseData = [];
 let baseInfo = {};
+let baseCompetitors = [];
 
 // initialize the waterfall graph outside the function
 let waterfall = null;
+// initialize the barchart_graph graph outside the function
+let barChart = null;
 // https://stackoverflow.com/questions/24815851/how-to-clear-a-chart-from-a-canvas-so-that-hover-events-cannot-be-triggered
 // scroll down to find the answer
 
@@ -114,6 +120,10 @@ const Create_waterfall_graph = () => {
       maintainAspectRatio: false,
       legend: {
         display: false,
+      },
+      title: {
+        display: true,
+        text: "Contribution of the most important features",
       },
       tooltips: {
         callbacks: {
@@ -176,9 +186,12 @@ searchInput.addEventListener("keyup", function (event) {
         baseData = dummy_data[key].data;
         // creating the lookup table for the info
         baseInfo = dummy_data[key].info;
+        // creating the data for the barChart
+        baseCompetitors = dummy_data[key].competitors;
         Create_waterfall_graph();
         getScore();
         sideBarHelperFunction();
+        Create_barChart_graph();
       }
     });
   }
@@ -295,6 +308,53 @@ const sideBarHelperFunction = () => {
   ShipImage.src = baseInfo.image;
 };
 // end function for populating content for the side bar
+
+// Start bar chart
+
+// Bar chart
+const Create_barChart_graph = () => {
+  if (barChart != null) {
+    barChart.destroy();
+  }
+
+  barChart = new Chart(document.getElementById("bar-chart"), {
+    type: "bar",
+    data: {
+      labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+      datasets: [
+        {
+          label: "Number of Ships",
+          backgroundColor: [
+            "#aae5e5",
+            "#aae5e5",
+            "#aae5e5",
+            "#fdd3d6",
+            "#fdd3d6",
+            "#fdd3d6",
+            "#fdd3d6",
+            "#c45850",
+            "#c45850",
+            "#c45850",
+          ],
+          data: baseCompetitors,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: "Score from Similar Ships",
+      },
+    },
+  });
+};
+
+// End bar chart
 
 // https://codepen.io/chriscoyier/pen/EyRroJ
 // removing animation

@@ -22,6 +22,9 @@ body {
   padding-top: 100px;
   align-items: space-between;
   margin-right: 2rem;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  /* to have padding in the end and being visible */
 }
 
 /* End Main container */
@@ -35,6 +38,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  z-index: 50;
 }
 .search svg {
   height: 6rem;
@@ -104,7 +108,7 @@ body {
 /* Start  score container*/
 
 .score-container {
-  width: 700px;
+  width: 500px;
   height: 500px;
   background-color: #f8f8f8;
   padding: 10px;
@@ -136,7 +140,8 @@ body {
   /* need to change */
   margin: -80px 0 0 -80px;
   /* need to change */
-  background: #e9e8ec;
+  background: #f8f8f8;
+  /* can change that to the same color as the body */
   border-radius: 100%;
 }
 .circular .number {
@@ -260,3 +265,20 @@ body {
 .statistics__entry-quantity {
   font-weight: var(--font-weight-medium);
 }
+
+/* End Side Menu */
+.bar-chart-container {
+  width: 1300px;
+  height: 500px;
+  background-color: #f8f8f8;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* to margin na to vgalo */
+  margin: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+}
+
+/* Start Bar chart */
