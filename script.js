@@ -8,6 +8,15 @@ let dummy_data = {
       { label: "Feature 5", value: 6 },
       { label: "Final Prediction", value: 4 },
     ],
+    info: {
+      county: "Greece",
+      name: "Evergreen",
+      BuildYear: 1989,
+      GrossTonnage: 4800,
+      CompanyName: "Shipping SA",
+      image:
+        "https://images.pexels.com/photos/1117210/pexels-photo-1117210.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    },
   },
   Ship_2: {
     data: [
@@ -18,6 +27,15 @@ let dummy_data = {
       { label: "Feature 5", value: 16 },
       { label: "Final Prediction", value: 7 },
     ],
+    info: {
+      county: "UK",
+      name: "Titanic",
+      BuildYear: 1912,
+      GrossTonnage: 3000,
+      CompanyName: "Shipping UK",
+      image:
+        "https://images.pexels.com/photos/68737/cruise-ship-holidays-cruise-vacation-68737.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    },
   },
   Ship_3: {
     data: [
@@ -28,17 +46,20 @@ let dummy_data = {
       { label: "Feature 5", value: 6 },
       { label: "Final Prediction", value: 10 },
     ],
+    info: {
+      county: "USA",
+      name: "New York",
+      BuildYear: 2000,
+      GrossTonnage: 4000,
+      CompanyName: "Shipping US",
+      image:
+        "https://images.pexels.com/photos/2051027/pexels-photo-2051027.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    },
   },
 };
 
-let baseData = [
-  { label: "Feature 1", value: 3 },
-  { label: "Feature 2", value: 5 },
-  { label: "Feature 3", value: 4 },
-  { label: "Feature 4", value: -22 },
-  { label: "Feature 5", value: 6 },
-  { label: "Final Prediction", value: 4 },
-];
+let baseData = [];
+let baseInfo = {};
 
 // initialize the waterfall graph outside the function
 let waterfall = null;
@@ -153,9 +174,11 @@ searchInput.addEventListener("keyup", function (event) {
       if (key === searchInput.value) {
         console.log(dummy_data[key].data);
         baseData = dummy_data[key].data;
-
+        // creating the lookup table for the info
+        baseInfo = dummy_data[key].info;
         Create_waterfall_graph();
         getScore();
+        sideBarHelperFunction();
       }
     });
   }
@@ -251,6 +274,27 @@ function add_animation() {
   let right_progress = document.getElementById("right_progress");
   right_progress.classList.add("right_progress");
 }
+
+//end of Reset Animations helper function
+
+// Start function for populating content for the side bar
+const sideBarHelperFunction = () => {
+  let ShipImage = document.getElementById("ShipImage");
+  let ShipName = document.getElementById("ShipName");
+  let ShipCounty = document.getElementById("ShipCounty");
+  let ShipBuildYear = document.getElementById("ShipBuildYear");
+  let ShipGrossTonnage = document.getElementById("ShipGrossTonnage");
+  let ShipCompanyName = document.getElementById("ShipCompanyName");
+
+  console.log("Base info", baseInfo);
+  ShipName.innerHTML = baseInfo.name;
+  ShipCounty.innerHTML = baseInfo.county;
+  ShipBuildYear.innerHTML = baseInfo.BuildYear;
+  ShipGrossTonnage.innerHTML = baseInfo.GrossTonnage;
+  ShipCompanyName.innerHTML = baseInfo.CompanyName;
+  ShipImage.src = baseInfo.image;
+};
+// end function for populating content for the side bar
 
 // https://codepen.io/chriscoyier/pen/EyRroJ
 // removing animation
