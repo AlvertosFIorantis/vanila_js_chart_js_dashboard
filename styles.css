@@ -12,6 +12,20 @@ body {
   background-color: #e9e8ec;
 }
 
+/* Start Main container  */
+.main_container {
+  width: calc(100% - 27rem);
+  height: 100%;
+  display: flex;
+  margin-left: 27rem;
+  /* margin left similar to aside container plus extra */
+  padding-top: 100px;
+  align-items: space-between;
+  margin-right: 2rem;
+}
+
+/* End Main container */
+
 /*  Start Search Box Styling */
 
 .search {
@@ -92,15 +106,15 @@ body {
 .score-container {
   width: 700px;
   height: 500px;
-  /* background-color: #f8f8f8; */
+  background-color: #f8f8f8;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   /* to margin na to vgalo */
   margin: 50px;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  border-radius: 10px; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
 }
 
 .circular {
@@ -133,7 +147,7 @@ body {
   z-index: 10;
   font-size: 18px;
   font-weight: 500;
-  color: #4158d0;
+  color: #9174d8;
 }
 .circular .bar {
   position: absolute;
@@ -170,3 +184,79 @@ body {
 }
 
 /* End Score Container  */
+
+/* Start Side Menu */
+.aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25rem;
+  background-color: #f8f8f8;
+  padding: 3.05rem 1.875rem;
+  height: 100vh;
+}
+
+/* Profile main */
+
+.profile-main {
+  margin-bottom: 6rem;
+  text-align: center;
+}
+
+.profile-main__setting {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+  /* background-color: #2c303a;
+  border: 2px solid #2c303a; */
+}
+
+.profile-main__photo {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.profile-main__name {
+  margin-top: 30px;
+  font-size: 4rem;
+  text-align: center;
+  color: #9174d8;
+}
+
+/* Statistics */
+
+.statistics {
+  margin-bottom: 4rem;
+}
+
+.statistics__entry {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem 0.5rem;
+}
+
+.statistics__entry {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e9e8ec;
+}
+
+.statistics__entry:hover {
+  color: #9174d8;
+}
+
+.statistics__entry-description,
+.statistics__entry-quantity {
+  font-size: 1.5rem;
+}
+
+.statistics__entry-description:focus {
+  outline: none;
+  color: var(--blue-violet);
+}
+
+.statistics__entry-quantity {
+  font-weight: var(--font-weight-medium);
+}

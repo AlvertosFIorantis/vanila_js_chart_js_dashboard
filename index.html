@@ -28,26 +28,62 @@
   </div>
   <!-- Start search box -->
   <!-- Start Water Fall graph -->
-  <div class="waterfall-container">
-    <canvas id="waterfall"></canvas>
-  </div>
-  <!-- End Water Fall graph -->
-  <!-- Start Score container -->
-  <div class="score-container">
-    <div class="circular">
-      <div class="inner"></div>
-      <div class="number"></div>
-      <div class="circle">
-        <div class="bar left">
-          <div id="left_progress" class="progress"></div>
-        </div>
-        <div class="bar right">
-          <div id="right_progress" class="progress"></div>
+  <div class="main_container">
+    <div class="waterfall-container">
+      <canvas id="waterfall"></canvas>
+    </div>
+    <!-- End Water Fall graph -->
+    <!-- Start Score container -->
+    <div class="score-container">
+      <div class="circular">
+        <div class="inner"></div>
+        <div class="number"></div>
+        <div class="circle">
+          <div class="bar left">
+            <div id="left_progress" class="progress"></div>
+          </div>
+          <div class="bar right">
+            <div id="right_progress" class="progress"></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <!-- End Score container -->
+  <!-- Start Side Panel -->
+  <aside class="aside">
+    <section class="section">
+      <div class="profile-main">
+        <button class="profile-main__setting focus--box-shadow" type="button">
+          <img
+            class="profile-main__photo"
+            src="https://i.insider.com/5cbf50dfd1a2f8074406a8b2?width=1136&format=jpeg"
+            alt="Profile photo"
+          />
+        </button>
+        <h1 class="profile-main__name">Evergreen</h1>
+      </div>
+      <ul class="statistics">
+        <li class="statistics__entry">
+          <span class="statistics__entry-description">Build Year</span
+          ><span class="statistics__entry-quantity">1989</span>
+        </li>
+        <li class="statistics__entry">
+          <span class="statistics__entry-description">Country of Origin</span
+          ><span class="statistics__entry-quantity">Greece</span>
+        </li>
+        <li class="statistics__entry">
+          <span class="statistics__entry-description">Gross tonnage</span
+          ><span class="statistics__entry-quantity">4800</span>
+        </li>
+        <li class="statistics__entry">
+          <span class="statistics__entry-description">Company Name</span
+          ><span class="statistics__entry-quantity">Shipping SA</span>
+        </li>
+      </ul>
+    </section>
+  </aside>
+  <!-- End Side Panel -->
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <script src="script.js"></script>

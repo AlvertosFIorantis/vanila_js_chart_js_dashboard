@@ -1,28 +1,34 @@
 let dummy_data = {
-  Ship_1: [
-    { label: "Feature 1", value: 3 },
-    { label: "Feature 2", value: 5 },
-    { label: "Feature 3", value: 4 },
-    { label: "Feature 4", value: -22 },
-    { label: "Feature 5", value: 6 },
-    { label: "Final Prediction", value: 4 },
-  ],
-  Ship_2: [
-    { label: "Feature 1", value: 13 },
-    { label: "Feature 2", value: 15 },
-    { label: "Feature 3", value: 14 },
-    { label: "Feature 4", value: -2 },
-    { label: "Feature 5", value: 16 },
-    { label: "Final Prediction", value: 7 },
-  ],
-  Ship_3: [
-    { label: "Feature 1", value: 23 },
-    { label: "Feature 2", value: 25 },
-    { label: "Feature 3", value: 42 },
-    { label: "Feature 4", value: 3 },
-    { label: "Feature 5", value: 6 },
-    { label: "Final Prediction", value: 10 },
-  ],
+  Ship_1: {
+    data: [
+      { label: "Feature 1", value: 3 },
+      { label: "Feature 2", value: 5 },
+      { label: "Feature 3", value: 4 },
+      { label: "Feature 4", value: -22 },
+      { label: "Feature 5", value: 6 },
+      { label: "Final Prediction", value: 4 },
+    ],
+  },
+  Ship_2: {
+    data: [
+      { label: "Feature 1", value: 13 },
+      { label: "Feature 2", value: 15 },
+      { label: "Feature 3", value: 14 },
+      { label: "Feature 4", value: -2 },
+      { label: "Feature 5", value: 16 },
+      { label: "Final Prediction", value: 7 },
+    ],
+  },
+  Ship_3: {
+    data: [
+      { label: "Feature 1", value: 23 },
+      { label: "Feature 2", value: 25 },
+      { label: "Feature 3", value: 42 },
+      { label: "Feature 4", value: 3 },
+      { label: "Feature 5", value: 6 },
+      { label: "Final Prediction", value: 10 },
+    ],
+  },
 };
 
 let baseData = [
@@ -33,6 +39,11 @@ let baseData = [
   { label: "Feature 5", value: 6 },
   { label: "Final Prediction", value: 4 },
 ];
+
+// initialize the waterfall graph outside the function
+let waterfall = null;
+// https://stackoverflow.com/questions/24815851/how-to-clear-a-chart-from-a-canvas-so-that-hover-events-cannot-be-triggered
+// scroll down to find the answer
 
 const Create_waterfall_graph = () => {
   const labels = baseData.map((o) => o.label);
@@ -60,7 +71,12 @@ const Create_waterfall_graph = () => {
     }
   });
 
-  new Chart("waterfall", {
+  if (waterfall != null) {
+    waterfall.destroy();
+  }
+
+  // save the new Chart in to a variable so i can reference if and destroy it before creating the new one
+  waterfall = new Chart("waterfall", {
     type: "bar",
     data: {
       labels: labels,
@@ -135,8 +151,9 @@ searchInput.addEventListener("keyup", function (event) {
     // baseData = dummy_data.value_in_data;
     Object.keys(dummy_data).map(function (key, index) {
       if (key === searchInput.value) {
-        console.log(dummy_data[key]);
-        baseData = dummy_data[key];
+        console.log(dummy_data[key].data);
+        baseData = dummy_data[key].data;
+
         Create_waterfall_graph();
         getScore();
       }
