@@ -136,7 +136,8 @@ body {
   /* need to change */
   margin: -80px 0 0 -80px;
   /* need to change */
-  background: #e9e8ec;
+  background: #f8f8f8;
+  /* i can change to body background */
   border-radius: 100%;
 }
 .circular .number {
@@ -145,15 +146,15 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  font-size: 18px;
+  font-size: 38px;
   font-weight: 500;
-  color: #9174d8;
+  color: #3b27d8;
 }
 .circular .bar {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: #aae5e5;
+  background: #3b27d8;
   -webkit-border-radius: 100%;
   clip: rect(0px, 200px, 200px, 100px);
   /* need to change */
@@ -165,7 +166,7 @@ body {
   -webkit-border-radius: 100%;
   clip: rect(0px, 100px, 200px, 0px);
   /* need to change */
-  background: #fdd3d6;
+  background: #f20c0f;
 }
 
 .left_progress {
@@ -223,7 +224,7 @@ body {
   margin-top: 30px;
   font-size: 4rem;
   text-align: center;
-  color: #9174d8;
+  color: #3b27d8;
 }
 
 /* Statistics */
@@ -244,7 +245,7 @@ body {
 }
 
 .statistics__entry:hover {
-  color: #9174d8;
+  color: #3b27d8;
 }
 
 .statistics__entry-description,

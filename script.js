@@ -84,11 +84,11 @@ const Create_waterfall_graph = () => {
   const backgroundColors = baseData.map((item, index) => {
     console.log(item);
     if (item.label === "Final Prediction") {
-      return "#9174d8";
+      return "#04f27f";
     } else if (item.value > 0) {
-      return "#aae5e5";
+      return "#3b27d8";
     } else {
-      return "#fdd3d6";
+      return "#f20c0f";
     }
   });
 
